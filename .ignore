@@ -1,3 +1,5 @@
 *.iml
+dao/*.iml
 dao/target
+biz/*.iml
 biz/target
