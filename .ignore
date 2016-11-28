@@ -1,5 +1,6 @@
 *.iml
 .idea
+.idea/workspace.xml
 dao/*.iml
 dao/target
 biz/*.iml

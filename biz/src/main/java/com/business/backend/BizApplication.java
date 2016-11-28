@@ -1,7 +1,9 @@
 package com.business.backend;
 
 import com.business.backend.dao.PersonDao;
+import com.business.backend.dao.domain.ExtAttr;
 import com.business.backend.dao.domain.Person;
+import com.business.backend.dao.ExtAttrDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,7 +13,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.annotation.Resource;
 import java.util.*;
 
 @Controller
@@ -21,6 +22,9 @@ public class BizApplication {
 
 	@Autowired
 	PersonDao personDao;
+
+	@Autowired
+	ExtAttrDao extAttrDao;
 
 	@RequestMapping("/testjpa")
 	@ResponseBody
@@ -33,6 +37,19 @@ public class BizApplication {
 	@ResponseBody
 	public Person saveJpa(@PathVariable Long id){
 		return personDao.findById(id);
+	}
+
+
+	@RequestMapping(value = "/testextattr/{id}")
+	@ResponseBody
+	public List<ExtAttr> findExtAttr(@PathVariable Long id){
+		return extAttrDao.findByBusinessKey(id);
+	}
+
+	@RequestMapping(value = "/testextattrsingle/{id}/{name}")
+	@ResponseBody
+	public ExtAttr findExtAttrName(@PathVariable Long id,@PathVariable String name){
+		return extAttrDao.find(id, name);
 	}
 
 	@RequestMapping("/abc")
