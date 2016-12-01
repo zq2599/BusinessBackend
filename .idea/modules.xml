@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/BusinessBackend.iml" filepath="$PROJECT_DIR$/BusinessBackend.iml" />
-      <module fileurl="file://$PROJECT_DIR$/biz/biz.iml" filepath="$PROJECT_DIR$/biz/biz.iml" />
-      <module fileurl="file://$PROJECT_DIR$/dao/dao.iml" filepath="$PROJECT_DIR$/dao/dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/biz/src/main/biz.iml" filepath="$PROJECT_DIR$/biz/src/main/biz.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dao/src/main/dao.iml" filepath="$PROJECT_DIR$/dao/src/main/dao.iml" />
     </modules>
   </component>
 </project>
