@@ -36,6 +36,26 @@ public class ExtAttrDaoImpl implements ExtAttrDao {
 
     @Override
     public ExtAttr save(ExtAttr extAttr) {
-        return null;
+        return extAttrRepository.save(extAttr);
+    }
+
+    @Override
+    public void deleteByBusinessKey(Long businessKey) {
+        extAttrRepository.deleteByBusinessKey(businessKey);
+    }
+
+    @Override
+    public void deleteByBusinessKeyAndName(Long businessKey, String name) {
+        extAttrRepository.deleteByBusinessKeyAndName(businessKey, name);
+    }
+
+    @Override
+    public void update(ExtAttr extAttr) {
+        extAttrRepository.save(extAttr);
+    }
+
+    @Override
+    public void updateValue(Long businessKey, String name, String value) {
+        extAttrRepository.updateValue(businessKey, name, value);
     }
 }

@@ -57,6 +57,46 @@ public class BizApplication {
 		return "index001";
 	}
 
+	@RequestMapping(value = "/testsaveext/{businessKey}/{name}/{value}")
+	@ResponseBody
+	public ExtAttr testSaveExt(@PathVariable Long businessKey,@PathVariable String name, @PathVariable String value){
+		ExtAttr extAttr = new ExtAttr();
+		extAttr.setBusinessKey(businessKey);
+		extAttr.setCreateTime(System.currentTimeMillis());
+		extAttr.setModifyTime(extAttr.getCreateTime());
+		extAttr.setName(name);
+		extAttr.setValue(value);
+		return extAttrDao.save(extAttr);
+	}
+
+	@RequestMapping(value = "/testdelete/{businessKey}")
+	@ResponseBody
+	public String testDelete(@PathVariable Long businessKey){
+		extAttrDao.deleteByBusinessKey(businessKey);
+		return "success";
+	}
+
+	@RequestMapping(value = "/testupdatevalue/{businessKey}/{name}/{value}")
+	@ResponseBody
+	public String testUpdateValue(@PathVariable Long businessKey,@PathVariable String name, @PathVariable String value){
+		extAttrDao.updateValue(businessKey, name, value);
+		return "success";
+	}
+
+	@RequestMapping(value = "/testupdate/{busnessKey}/{name}/{type}")
+	@ResponseBody
+	public String testDelete(@PathVariable Long busnessKey, @PathVariable String name, @PathVariable String type){
+		ExtAttr extAttr = extAttrDao.find(busnessKey, name);
+
+		if(null==extAttr){
+			return "record not found";
+		}else{
+			extAttr.setType(type);
+			extAttrDao.update(extAttr);
+			return "success";
+		}
+	}
+
     public static void main(String[] args) {
         SpringApplication.run(BizApplication.class, args);
     }
