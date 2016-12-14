@@ -9,6 +9,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -55,6 +56,12 @@ public class BizApplication {
 	@RequestMapping("/abc")
 	public String test001(){
 		return "index001";
+	}
+
+	@RequestMapping("/abc005")
+	public String test005(Model model){
+		model.addAttribute("name005", "from-test005");
+		return "index005";
 	}
 
 	@RequestMapping(value = "/testsaveext/{businessKey}/{name}/{value}")
