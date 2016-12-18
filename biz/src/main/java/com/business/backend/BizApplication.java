@@ -1,6 +1,8 @@
 package com.business.backend;
 
+import com.business.backend.dao.BaseStockDao;
 import com.business.backend.dao.PersonDao;
+import com.business.backend.dao.domain.BaseStock;
 import com.business.backend.dao.domain.ExtAttr;
 import com.business.backend.dao.domain.Person;
 import com.business.backend.dao.ExtAttrDao;
@@ -26,6 +28,9 @@ public class BizApplication {
 
 	@Autowired
 	ExtAttrDao extAttrDao;
+
+	@Autowired
+	BaseStockDao baseStockDao;
 
 	@RequestMapping("/testjpa")
 	@ResponseBody
@@ -102,6 +107,15 @@ public class BizApplication {
 			extAttrDao.update(extAttr);
 			return "success";
 		}
+	}
+
+	@RequestMapping(value = "/savestock/{name}")
+	@ResponseBody
+	public BaseStock saveStock(@PathVariable String name){
+		BaseStock baseStock = new BaseStock();
+		baseStock.setName(name);
+		baseStock.setType("default");
+		return baseStockDao.save(baseStock);
 	}
 
     public static void main(String[] args) {
