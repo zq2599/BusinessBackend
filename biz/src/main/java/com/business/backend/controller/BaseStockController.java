@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
@@ -39,6 +40,19 @@ public class BaseStockController {
 		baseStock.setType(type);
 		baseStock.setMaxValue(num);
 		baseStock.setStockValue(num);
+		return baseStockDao.save(baseStock);
+	}
+
+	@RequestMapping(value = "/savepost")
+	@ResponseBody
+	public BaseStock savePost(@RequestParam("stockName") String stockName, @RequestParam("stockType") String stockType, @RequestParam("maxValue") Long maxValue){
+		BaseStock baseStock = new BaseStock();
+		baseStock.setCreateTime(System.currentTimeMillis());
+		baseStock.setModifyTime(System.currentTimeMillis());
+		baseStock.setName(stockName);
+		baseStock.setType(stockType);
+		baseStock.setMaxValue(maxValue);
+		baseStock.setStockValue(maxValue);
 		return baseStockDao.save(baseStock);
 	}
 }
