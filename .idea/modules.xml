@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/biz/src/main/main.iml" filepath="$PROJECT_DIR$/biz/src/main/main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/dao/src/main/main1.iml" filepath="$PROJECT_DIR$/dao/src/main/main1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/biz/biz.iml" filepath="$PROJECT_DIR$/biz/biz.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dao/dao.iml" filepath="$PROJECT_DIR$/dao/dao.iml" />
     </modules>
   </component>
 </project>

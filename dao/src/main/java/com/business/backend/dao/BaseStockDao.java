@@ -34,4 +34,10 @@ public interface BaseStockDao {
      * @return
      */
     BaseStock find(Long id);
+
+    /**
+     * 查找所有库存对象
+     * @return
+     */
+    List<BaseStock> findAll();
 }

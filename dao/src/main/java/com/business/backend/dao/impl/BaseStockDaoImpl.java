@@ -38,4 +38,9 @@ public class BaseStockDaoImpl implements BaseStockDao {
     public BaseStock find(Long id) {
         return baseStockRepository.findOne(id);
     }
+
+    @Override
+    public List<BaseStock> findAll() {
+        return baseStockRepository.findAll();
+    }
 }
